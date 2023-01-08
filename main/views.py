@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
 from main.models import Survey, SurveyResponse
-
+import json
 
 # Create your views here.
 def homepage(request):
@@ -28,11 +28,12 @@ allowed_client_id = ['sd9sdgj120sf12']
 @csrf_exempt
 def create_survey_form(request):
     if request.method == 'POST':
-        sessionID = request.POST['sessionID']
-        customerID = request.POST['customerID']
-        vendorName = request.POST['vendorName']
-        clientID = request.POST['clientID']
-        vendorImage = request.POST['vendorImage']
+        request_data = json.loads(request.body)
+        sessionID = request_data['sessionID']
+        customerID = request_data['customerID']
+        vendorName = request_data['vendorName']
+        clientID = request_data['clientID']
+        vendorImage = request_data['vendorImage']
         if clientID not in allowed_client_id:
             return HttpResponse('Invalid Client ID')
         while True:
@@ -63,14 +64,16 @@ def fill_survey(request,surveyID):
         'finished': survey.finished
     }
     if request.method == 'POST':
-        didBuy = request.POST['didBuy']
+        print(request.POST)
+        request_data = request.POST
+        didBuy = request_data['didBuy']
         if didBuy == 'yes':
             didBuy = True
         else:
             didBuy = False
-        sellerExp = int(request.POST['sellerExp'])
-        prodExp = int(request.POST['prodExp'])
-        suggestion = request.POST['suggestion']
+        sellerExp = int(request_data['sellerExp'])
+        prodExp = int(request_data['prodExp'])
+        suggestion = request_data['suggestion']
         exp = SurveyResponse(surveyID = data['surveyID'],
                             sessionID=data['sessionID'],
                             customerID=data['customerID'],
