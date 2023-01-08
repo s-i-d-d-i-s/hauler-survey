@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hauler Survey</title>
+  <!-- Font Awesome -->
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <style>
+    main {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+    }
+
+    .extra-margins {
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--Main Navigation-->
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark info-color-dark">
+      <a class="navbar-brand" href="/">Hauler|<strong>Surveys</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+        </ul>
+
+        
+        <ul class="navbar-nav nav-flex-icons">
+          {% if user.is_authenticated == False %}
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/login/?next=/"><i class="fa fa-user"></i> Login </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/logout/?next=/" ><i class="fa fa-user"></i> Logout </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+  {% block content %}
+  {% endblock content %}
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+
+</body>
+
+</html>

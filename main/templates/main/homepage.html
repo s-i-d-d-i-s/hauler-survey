@@ -1,0 +1,95 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<main>
+    <!--Second row-->
+    {% if user.is_authenticated %}
+    <div class="container">
+        <h3>Hi {{ user.username }} !</h3>
+        <hr>
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <!--First columnn-->
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="https://mdbootstrap.com/images/regular/city/img%20(2).jpg" class="img-fluid" alt="">
+                        
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block p-3">
+                        <!--Title-->
+                        <h4 class="card-title">Create Survey Forms</h4>
+                        <!--Text-->
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--First columnn-->
+
+            <!--Second columnn-->
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="https://mdbootstrap.com/images/regular/city/img%20(4).jpg" class="img-fluid" alt="">
+                   
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block p-3">
+                        <!--Title-->
+                        <h4 class="card-title">Visualize Data</h4>
+                        <!--Text-->
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Second columnn-->
+
+            <!--Third columnn-->
+            <div class="col-md-4">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay hm-white-slight">
+                        <img src="https://mdbootstrap.com/images/regular/city/img%20(8).jpg" class="img-fluid" alt="">
+                    </div>
+                    <!--/.Card image-->
+
+                    <!--Card content-->
+                    <div class="card-block p-3">
+                        <!--Title-->
+                        <h4 class="card-title">Export Data</h4>
+                        <!--Text-->
+                    </div>
+                    <!--/.Card content-->
+
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Third columnn-->
+        </div>
+        <!--/.Second row-->
+    </div>
+    <!--/.Main layout-->
+    </div>
+</main>
+
+{% endblock content %}
